@@ -1,0 +1,27 @@
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        prefix_output=""
+        for index0 in range(len(strs[0])):
+            prefix=strs[0][index0]
+            #select the prefix N bit in first string in list
+            #remove the first string in list
+            strs2=strs[1:]
+            for index1 in range(len(strs2)):
+                if index0>len(strs2[index1])-1:
+                    prefix=""
+                    break
+                else:   
+                    if strs2[index1][index0]==prefix:
+                        continue
+                    else:
+                        prefix=""
+                        break
+            if prefix=="":
+                break
+            else:
+                prefix_output+=prefix
+        return prefix_output
