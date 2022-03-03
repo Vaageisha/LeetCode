@@ -1,0 +1,16 @@
+class Solution(object):
+    def searchInsert(self, nums, target):
+        count=0
+        if len(nums)==1 and target>nums[0]:
+            count=1
+            
+        for i in range(len(nums)):
+            
+            if target==nums[i]:
+                count=i
+            elif target>nums[i] and nums[i]<nums[len(nums)-1] and target<nums[i+1]:
+                count=i+1
+            elif target>nums[len(nums)-1]:
+                count=len(nums)
+           
+        return count
